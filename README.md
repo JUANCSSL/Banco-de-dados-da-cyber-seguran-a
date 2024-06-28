@@ -68,7 +68,7 @@ O banco de dados `Cybershieldb` contém as seguintes tabelas:
 #### Criação do Banco de Dados e Tabelas
 
 ```sql
-CREATE DATABASE Cybershieldb;
+CREATE DATABASE Cybershieldb
 USE Cybershieldb;
 
 CREATE TABLE Departments (
@@ -93,20 +93,20 @@ CREATE TABLE Users (
 
 CREATE TABLE Incident_types (
   incident_type_id INT AUTO_INCREMENT PRIMARY KEY,
-  incident_type_name VARCHAR(100),
-  incident_type_description TEXT,
-  incident_type_category VARCHAR(100),
-  incident_type_priority VARCHAR(100),
-  incident_type_creation_date DATETIME,
-  incident_type_update_date DATETIME,
-  incident_type_status VARCHAR(20)
+  Incident_type_name VARCHAR(100),
+  Incident_type_description TEXT,
+  Incident_type_category VARCHAR(100),
+  Incident_type_priority VARCHAR(100),
+  Incident_type_creation_Date DATETIME,
+  Incident_type_update_Date DATETIME,
+  Incident_type_status VARCHAR(20)
 );
 
 CREATE TABLE Incidents (
   incidents_id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
   incident_type_id INT,
-  descriptionn TEXT,
+  presentation TEXT,
   severity VARCHAR(20),
   date_reported DATETIME,
   damage_to_device VARCHAR(100),
@@ -137,8 +137,6 @@ CREATE TABLE Reduction_actions (
   FOREIGN KEY (incident_id) REFERENCES Incidents(incidents_id)
 );
 
-Inserção de Dados
-
 INSERT INTO Departments (token, manager, number_of_employees, commentary) VALUES 
 ('IT', 'Isaias', '25', 'Departamento de Tecnologia da Informação'),
 ('HR', 'Natália', '15', 'Departamento de Recursos Humanos'),
@@ -146,31 +144,31 @@ INSERT INTO Departments (token, manager, number_of_employees, commentary) VALUES
 ('OPS', 'Thiago', '30', 'Departamento de Operações'),
 ('SEC', 'Juan', '10', 'Departamento de Segurança');
 
-INSERT INTO Users (department_id, username, passcode, email, job_title, circumstance, phone_number) VALUES 
+INSERT INTO Users (Department_id, username, passcode, email, job_title, circumstance, phone_Number) VALUES 
 (1, 'Zaza', 'password123', 'zaza@example.com', 'Gerenciamento de TI', 'Ativo', '(21) 9989-9876'),
 (2, 'Nat', 'password123', 'NAth@example.com', 'Gerenciamento de RH', 'Ativo', '(21) 9999-5686'),
 (3, 'Debinha', 'password123', 'Debinha@example.com', 'Gerente Financeiro', 'Ativo', '(21) 9959-5480'),
 (4, 'TH', 'password123', 'THwn@example.com', 'Gerente das operações', 'Ativo', '(21) 9329-5796'),
 (5, 'Erro J', 'password123', 'ErroJte@example.com', 'Gerente da segurança', 'Ativo', '(21) 9864-5623');
 
-INSERT INTO Incident_types (incident_type_name, incident_type_description, incident_type_category, incident_type_priority, incident_type_creation_date, incident_type_update_date, incident_type_status) VALUES 
+INSERT INTO Incident_Types (incident_type_name, incident_type_description, incident_type_category, incident_type_priority, incident_type_creation_date, incident_type_update_date, incident_type_status) VALUES 
 ('Phishing', 'Tentativa de e-mail de phishing', 'Segurança de e-mail', 'Alto', NOW(), NOW(), 'Ativo'),
 ('Malware', 'Malware detectado no dispositivo', 'Segurança de endpoint', 'Crítico', NOW(), NOW(), 'Ativo'),
 ('Violação de dados', 'Acesso não autorizado a dados', 'Segurança de dados', 'Crítico', NOW(), NOW(), 'Ativo'),
 ('Ataque DDoS', 'Negação de serviço distribuída', 'Segurança de rede', 'Alto', NOW(), NOW(), 'Ativo'),
 ('Ransomware', 'Ataque de ransomware', 'Segurança de endpoint', 'Crítico', NOW(), NOW(), 'Ativo');
 
-INSERT INTO Incidents (user_id, incident_type_id, descriptionn, severity, date_reported, damage_to_device, what_damage) VALUES 
+INSERT INTO Incidents (user_id, incident_type_id, presentation , severity, Date_reported, damage_to_device, what_damage) VALUES 
 (1, 1, 'E-mail de phishing recebido e relatado', 'Médio', NOW(), 'Sistema de e-mail', 'Nenhum'),
 (2, 2, 'Malware detectado no dispositivo do gerente de RH', 'Alta', NOW(), 'Estação de trabalho', 'Sistema comprometido'),
 (3, 3, 'Violação de dados detectada no departamento financeiro', 'Crítico', NOW(), 'Database Server', 'Dados exfiltrados'),
 (4, 4, 'Ataque DDoS no site da empresa', 'Alto', NOW(), 'Web Server', 'Website down'),
 (5, 5, 'Ransomware arquivo de usuário criptografado', 'Crítico', NOW(), 'Local de trabalho', 'Arquivos criptografados');
 
-INSERT INTO Incident_comments (incident_id, user_id, commentary, make, improvement) VALUES 
+INSERT INTO Incident_Comments (incident_id, user_id, commentary, make, improvement) VALUES 
 (1, 1, 'Investigando a origem do e-mail de phishing', NOW(), NOW()),
 (2, 2, 'Verificação de malware no dispositivo', NOW(), NOW()),
-(3, 3, 'Notificar as partes afetadas sobre violação de dados', NOW(), NOW()),
+(3, 3, 'Notificar as partes afetadas sobre violação de dados',NOW(), NOW()),
 (4, 4, 'Mitigação de ataques DDoS', NOW(), NOW()),
 (5, 5, 'Restauração de arquivos a partir do backup', NOW(), NOW());
 
@@ -178,39 +176,45 @@ INSERT INTO Reduction_actions (department_id, incident_id, action_date, action_t
 (1, 1, NOW(), 'Treinamento de phishing para a equipe', 'Alto'),
 (2, 2, NOW(), 'Software anti-malware instalado', 'Médio'),
 (3, 3, NOW(), 'Controles de acesso reforçados', 'Alto'),
-(4, 4, NOW(), 'Proteção contra DDoS implementada', 'Médio'),
+(4, 4, NOW(), 'Implemented DDoS protection', 'Medio'),
 (5, 5, NOW(), 'Processos de backup aprimorados', 'Alto');
 
--- Consultas para Departments
 SELECT * FROM Departments;
-SELECT * FROM Departments WHERE number_of_employees > 20;
+SELECT * FROM Users;
+SELECT * FROM Incident_types;
+SELECT * FROM Incidents;
+SELECT * FROM Incident_comments;
+SELECT * FROM Reduction_actions;
+
+-- Consultas departments
+SELECT * FROM Departments;
+SELECT * FROM Departments WHERE number_of_employees > '20';
 SELECT * FROM Departments WHERE token = 'IT';
 
--- Consultas para Users
+-- Consultas Users 
 SELECT * FROM Users;
 SELECT * FROM Users WHERE department_id = 1;
 SELECT * FROM Users WHERE circumstance = 'Ativo';
 
--- Consultas para Incident_types
+-- Consultas Incident_types
 SELECT * FROM Incident_types;
-SELECT * FROM Incident_types WHERE incident_type_priority = 'Crítico';
-SELECT * FROM Incident_types WHERE incident_type_status = 'Ativo';
+SELECT * FROM Incident_types WHERE IncidentType_priority = 'Crítico';
+SELECT * FROM Incident_types WHERE Incidenttype_status = 'Ativo';
 
--- Consultas para Incidents
+-- Consultas Incidents 
 SELECT * FROM Incidents;
 SELECT * FROM Incidents WHERE date_reported > '2024-01-01';
 SELECT * FROM Incidents WHERE severity = 'Alto';
 
--- Consultas para Incident_comments
+-- Consultas Incident_comments
 SELECT * FROM Incident_comments;
 SELECT * FROM Incident_comments WHERE incident_id = 1;
 SELECT * FROM Incident_comments WHERE user_id = 1;
 
--- Consultas para Reduction_actions
+-- Consultas Reduction_actions
 SELECT * FROM Reduction_actions;
 SELECT * FROM Reduction_actions WHERE incident_id = 1;
 SELECT * FROM Reduction_actions WHERE department_id = 1;
-
 
 
 
