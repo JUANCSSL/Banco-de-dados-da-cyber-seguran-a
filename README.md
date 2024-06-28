@@ -172,6 +172,7 @@ SELECT * FROM Reduction_actions;
 SELECT * FROM Reduction_actions WHERE incident_id = 1;
 SELECT * FROM Reduction_actions WHERE department_id = 1;
 
+Recursos Adicionais
 ##Links para as tabelas e graficos
 [Tabela Incidentes](https://github.com/JUANCSSL/Banco-de-dados-da-cyber-seguran-a/blob/juan/Tabelas%20e%20graficos.pdf)
 [Tabela Tipos de incidentes](https://github.com/JUANCSSL/Banco-de-dados-da-cyber-seguran-a/blob/Debora/Debora/Tabelas%20e%20graficos%20Debora%20(1).pdf)
