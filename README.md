@@ -16,8 +16,7 @@ O banco de dados `Cybershieldb` contém as seguintes tabelas:
 
 # Modelo conceitual
 
-<img src="https://github.com/JUANCSSL/Banco-de-dados-da-cyber-seguran-a/blob/main/Br%20modelo%20Cybershieldb.pdf" alt="Texto Alternativo">
-
+[BR Modelo do Banco de Dados Cybershieldb](https://github.com/JUANCSSL/Banco-de-dados-da-cyber-seguran-a/blob/main/Br%20modelo%20Cybershieldb.pdf)
 
 ### Tabelas e Consultas
 
