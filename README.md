@@ -59,6 +59,8 @@ O banco de dados `Cybershieldb` contém as seguintes tabelas:
 - **TABELA REDUÇÕES DE AÇÕES (MODELO)**  
   [Tabela Reduções de ações (Modelo)](https://github.com/JUANCSSL/Banco-de-dados-da-cyber-seguran-a/blob/Isaias/Isaias/Br%20modelo%20isaias.pdf)
 
+- **APRESENTAÇÃO DO PROJETO(SLIDE)**  
+  [Slide](https://www.canva.com/design/DAGHetYtxCo/GqU6GcFD4NXx_LWn7nGsWw/view?utm_content=DAGHetYtxCo&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 ### Tabelas e Consultas
 
