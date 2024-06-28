@@ -22,27 +22,27 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Incident_types (
-  incidenttype_id INT AUTO_INCREMENT PRIMARY KEY,
-  Incidenttype_name VARCHAR(100),
-  Incidenttype_description TEXT,
-  Incidenttype_category VARCHAR(100),
-  Incidenttype_priority VARCHAR(100),
-  Incidenttype_creation_Date DATETIME,
-  Incidenttype_update_Date DATETIME,
-  Incidenttype_status VARCHAR(20)
+  incident_type_id INT AUTO_INCREMENT PRIMARY KEY,
+  Incident_type_name VARCHAR(100),
+  Incident_type_description TEXT,
+  Incident_type_category VARCHAR(100),
+  Incident_type_priority VARCHAR(100),
+  Incident_type_creation_Date DATETIME,
+  Incident_type_update_Date DATETIME,
+  Incident_type_status VARCHAR(20)
 );
 
 CREATE TABLE Incidents (
   incidents_id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT,
-  incidenttype_id INT,
-  descriptionn TEXT,
+  incident_type_id INT,
+  presentation TEXT,
   severity VARCHAR(20),
   date_reported DATETIME,
   damage_to_device VARCHAR(100),
   what_damage VARCHAR(200),
   FOREIGN KEY (user_id) REFERENCES Users(user_id),
-  FOREIGN KEY (incidenttype_id) REFERENCES Incident_types(incidenttype_id)
+  FOREIGN KEY (incident_type_id) REFERENCES Incident_types(incident_type_id)
 );
 
 CREATE TABLE Incident_comments (
@@ -81,14 +81,14 @@ INSERT INTO Users (Department_id, username, passcode, email, job_title, circumst
 (4, 'TH', 'password123', 'THwn@example.com', 'Gerente das operações', 'Ativo', '(21) 9329-5796'),
 (5, 'Erro J', 'password123', 'ErroJte@example.com', 'Gerente da segurança', 'Ativo', '(21) 9864-5623');
 
-INSERT INTO Incident_Types (incidenttype_name, incidenttype_description, incidenttype_category, incidenttype_priority, incidenttype_creation_date, incidenttype_update_date, incidenttype_status) VALUES 
+INSERT INTO Incident_Types (incident_type_name, incident_type_description, incident_type_category, incident_type_priority, incident_type_creation_date, incident_type_update_date, incident_type_status) VALUES 
 ('Phishing', 'Tentativa de e-mail de phishing', 'Segurança de e-mail', 'Alto', NOW(), NOW(), 'Ativo'),
 ('Malware', 'Malware detectado no dispositivo', 'Segurança de endpoint', 'Crítico', NOW(), NOW(), 'Ativo'),
 ('Violação de dados', 'Acesso não autorizado a dados', 'Segurança de dados', 'Crítico', NOW(), NOW(), 'Ativo'),
 ('Ataque DDoS', 'Negação de serviço distribuída', 'Segurança de rede', 'Alto', NOW(), NOW(), 'Ativo'),
 ('Ransomware', 'Ataque de ransomware', 'Segurança de endpoint', 'Crítico', NOW(), NOW(), 'Ativo');
 
-INSERT INTO Incidents (user_id, incidenttype_id, descriptionn, severity, Date_reported, damage_to_device, what_damage) VALUES 
+INSERT INTO Incidents (user_id, incident_type_id, presentation , severity, Date_reported, damage_to_device, what_damage) VALUES 
 (1, 1, 'E-mail de phishing recebido e relatado', 'Médio', NOW(), 'Sistema de e-mail', 'Nenhum'),
 (2, 2, 'Malware detectado no dispositivo do gerente de RH', 'Alta', NOW(), 'Estação de trabalho', 'Sistema comprometido'),
 (3, 3, 'Violação de dados detectada no departamento financeiro', 'Crítico', NOW(), 'Database Server', 'Dados exfiltrados'),
@@ -116,30 +116,32 @@ SELECT * FROM Incidents;
 SELECT * FROM Incident_comments;
 SELECT * FROM Reduction_actions;
 
-
+-- Consultas departments
 SELECT * FROM Departments;
 SELECT * FROM Departments WHERE number_of_employees > '20';
 SELECT * FROM Departments WHERE token = 'IT';
 
-
+-- Consultas Users 
 SELECT * FROM Users;
 SELECT * FROM Users WHERE department_id = 1;
 SELECT * FROM Users WHERE circumstance = 'Ativo';
 
-
+-- Consultas Incident_types
 SELECT * FROM Incident_types;
 SELECT * FROM Incident_types WHERE IncidentType_priority = 'Crítico';
 SELECT * FROM Incident_types WHERE Incidenttype_status = 'Ativo';
 
-
+-- Consultas Incidents 
 SELECT * FROM Incidents;
 SELECT * FROM Incidents WHERE date_reported > '2024-01-01';
 SELECT * FROM Incidents WHERE severity = 'Alto';
 
+-- Consultas Incident_comments
 SELECT * FROM Incident_comments;
 SELECT * FROM Incident_comments WHERE incident_id = 1;
 SELECT * FROM Incident_comments WHERE user_id = 1;
 
+-- Consultas Reduction_actions
 SELECT * FROM Reduction_actions;
 SELECT * FROM Reduction_actions WHERE incident_id = 1;
-SELECT * FROM Reduction_actions WHERE department_id = 1;
+SELECT * FROM Reduction_actions WHERE department_id = 1;
