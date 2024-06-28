@@ -1,4 +1,7 @@
 # Cybershield Database 
+## Bem-vindo ao Projeto Cybershieldb
+
+![Cybershieldb](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbHFqNGZxMXk4MnN3d2l0eDNoYnBoZHQyYnpxN2ZtN3JvNWxnNjZ3dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vISmwpBJUNYzukTnVx/giphy.gif)
 
 ## Introdução
 A cibersegurança é crucial na era digital para proteger dados pessoais e empresariais, prevenir ataques cibernéticos, garantir a continuidade dos negócios e cumprir regulamentações. Além disso, ela aumenta a confiança dos clientes e parceiros, protege infraestruturas críticas e acompanha a evolução das ameaças cibernéticas. Medidas como firewalls, antivírus, criptografia, autenticação de dois fatores, backups regulares e educação dos usuários são essenciais para mitigar riscos e proteger informações sensíveis.
